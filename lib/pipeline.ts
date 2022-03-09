@@ -1,5 +1,6 @@
 import * as cdk from '@aws-cdk/core';
 import * as ssp from '@aws-quickstart/ssp-amazon-eks';
+import { TeamPlatform, TeamApplication } from '../teams'; // HERE WE IMPORT TEAMS
 
 export default class PipelineConstruct {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
