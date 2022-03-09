@@ -7,6 +7,7 @@ export class TeamApplication extends ApplicationTeam {
         super({
             name: name,
             userRoleArn: `arn:aws:iam::059886156858:role/application-team`,  
+            users: [new ArnPrincipal('arn:aws:iam::059886156858:role/Admin')]
         });
     }
 }
