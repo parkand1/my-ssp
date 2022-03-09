@@ -2,15 +2,16 @@ import * as cdk from '@aws-cdk/core';
 import * as ssp from '@aws-quickstart/ssp-amazon-eks';
 import { TeamPlatform, TeamApplication } from '../teams'; // HERE WE IMPORT TEAMS
 
-export default class PipelineConstruct {
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
-    super(scope,id);
-
+export default class PipelineConstruc extends cdk.Construct {
+  constructor(scope: cdk.Construct, id: string, props: cdk.StackProps) {
+    super(scope, id);
+    
+const account = process.env.CDK_DEFAULT_ACCOUNT!;
     const blueprint = ssp.EksBlueprint.builder()
     .account(props?.env?.account)
     .region(props?.env?.region)
     .addOns()
-    .teams(new TeamPlatform('platform-team'), new TeamApplication('burnham')); // HERE WE ADD TEAMS
+    .teams(new TeamPlatform(account), new TeamApplication('burnham')); // HERE WE ADD TEAMS
   
     ssp.CodePipelineStack.builder()
       .name("ssp-eks-workshop-pipeline")
