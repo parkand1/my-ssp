@@ -10,7 +10,7 @@ export default class PipelineConstruct {
     .account(props?.env?.account)
     .region(props?.env?.region)
     .addOns()
-    .teams();
+    .teams(new TeamPlatform('platform-team'), new TeamApplication('burnham')); // HERE WE ADD TEAMS
   
     ssp.CodePipelineStack.builder()
       .name("ssp-eks-workshop-pipeline")
