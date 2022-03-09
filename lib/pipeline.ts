@@ -4,7 +4,7 @@ import { TeamPlatform, TeamApplication } from '../teams'; // HERE WE IMPORT TEAM
 
 export default class PipelineConstruct {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
-    // super(scope,id);
+    super(scope,id);
 
     const blueprint = ssp.EksBlueprint.builder()
     .account(props?.env?.account)
@@ -33,4 +33,3 @@ export default class PipelineConstruct {
   }
 }
 
-//test
